@@ -7,6 +7,8 @@ Sublime text 3 package that is capable of basic highlighting in wesnoth markup l
   - Go to "Sublime Text 3/Packages/user"
   - Clone the repo or copy the YAML files (WML.sublime-settings and WML.sublime-syntax) there
   
+  You can also add my custom color scheme definitions (same folder, file Monokai.color-scheme) with the Monokai color scheme (Preferences > Select Color Scheme > Monokai)
+  
 ## Basic implementation contains:
   - Coloring of WML Macros
   - Different colors for translatable and non-translatable strings
