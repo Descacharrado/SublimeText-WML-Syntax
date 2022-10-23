@@ -30,7 +30,7 @@ contexts:
         - meta_scope: markup.string.untranslatable
         - match: '$\n?|?"'
           pop: true
-    - match: '[ ]_[ ]"'
+    - match: '_[ ]"'
       push:
         - meta_scope: markup.string.translatable
         - match: '$\n?|?"'
@@ -42,10 +42,15 @@ contexts:
         - match: '$\n?|='
           pop: true
     # Tags
-    - match: '\['
+    - match: '\[|]]'
       push:
         - meta_scope: markup.tag
-        - match: '$\n?|]'
+        - match: ''
+          pop: true
+    - match: '\[|/'
+      push:
+        - meta_scope: markup.red
+        - match: ''
           pop: true
     # Preprocessor
     - match: '^#'
@@ -1385,11 +1390,6 @@ contexts:
         - meta_scope: markup.unittypes
         - match: ''
           pop: true
-    - match: 'Troll'
-      push:
-        - meta_scope: markup.unittypes
-        - match: ''
-          pop: true
     - match: 'Troll Hero'
       push:
         - meta_scope: markup.unittypes
@@ -1411,6 +1411,11 @@ contexts:
         - match: ''
           pop: true
     - match: 'Troll Whelp'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Troll'
       push:
         - meta_scope: markup.unittypes
         - match: ''
@@ -1445,12 +1450,12 @@ contexts:
         - meta_scope: markup.unittypes
         - match: ''
           pop: true
-    - match: 'Wolf'
+    - match: 'Wolf Rider'
       push:
         - meta_scope: markup.unittypes
         - match: ''
           pop: true
-    - match: 'Wolf Rider'
+    - match: 'Wolf'
       push:
         - meta_scope: markup.unittypes
         - match: ''
@@ -1465,17 +1470,17 @@ contexts:
         - meta_scope: markup.unittypes
         - match: ''
           pop: true
-    - match: 'Wose'
-      push:
-        - meta_scope: markup.unittypes
-        - match: ''
-          pop: true
     - match: 'Wose Sapling'
       push:
         - meta_scope: markup.unittypes
         - match: ''
           pop: true
     - match: 'Wose Shaman'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Wose'
       push:
         - meta_scope: markup.unittypes
         - match: ''
@@ -1500,1728 +1505,1728 @@ contexts:
         - meta_scope: markup.unittypes
         - match: ''
           pop: true
-    - match: 'abilities'
+    - match: '\[|abilities]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' about'
+    - match: '\[|about]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' add_ai_behavior'
+    - match: '\[|add_ai_behavior]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' advance'
+    - match: '\[|advance]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' advanced_preference'
+    - match: '\[|advanced_preference]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' advancefrom'
+    - match: '\[|advancefrom]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' advancement'
+    - match: '\[|advancement]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' advances'
+    - match: '\[|advances]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' affect_adjacent'
+    - match: '\[|affect_adjacent]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' ai'
+    - match: '\[|ai]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' allied_with'
+    - match: '\[|allied_with]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' allow_end_turn'
+    - match: '\[|allow_end_turn]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' allow_extra_recruit'
+    - match: '\[|allow_extra_recruit]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' allow_recruit'
+    - match: '\[|allow_recruit]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' allow_undo'
+    - match: '\[|allow_undo]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' and'
+    - match: '\[|and]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' animate'
+    - match: '\[|animate]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' animate_unit'
+    - match: '\[|animate_unit]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' animation'
+    - match: '\[|animation]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' aspect'
+    - match: '\[|aspect]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' attack'
+    - match: '\[|attack]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' attack_anim'
+    - match: '\[|attack_anim]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' attacks'
+    - match: '\[|attacks]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' avoid'
+    - match: '\[|avoid]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: 'base_unit'
+    - match: '\[|base_unit]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' berserk'
+    - match: '\[|berserk]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' binary_path'
+    - match: '\[|binary_path]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' break'
+    - match: '\[|break]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' brush'
+    - match: '\[|brush]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: 'campaign'
+    - match: '\[|campaign]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' cancel_action'
+    - match: '\[|cancel_action]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' candidate_action'
+    - match: '\[|candidate_action]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' capture_village'
+    - match: '\[|capture_village]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' case'
+    - match: '\[|case]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' chance_to_hit'
+    - match: '\[|chance_to_hit]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' change_theme'
+    - match: '\[|change_theme]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' chat'
+    - match: '\[|chat]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' checkbox'
+    - match: '\[|checkbox]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' choice'
+    - match: '\[|choice]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' choose'
+    - match: '\[|choose]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' clear_global_variable'
+    - match: '\[|clear_global_variable]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' clear_menu_item'
+    - match: '\[|clear_menu_item]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' clear_variable'
+    - match: '\[|clear_variable]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' color_adjust'
+    - match: '\[|color_adjust]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' color_palette'
+    - match: '\[|color_palette]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' color_range'
+    - match: '\[|color_range]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' command'
+    - match: '\[|command]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' continue'
+    - match: '\[|continue]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' credits_group'
+    - match: '\[|credits_group]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' criteria'
+    - match: '\[|criteria]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: 'damage'
+    - match: '\[|damage]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' death'
+    - match: '\[|death]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' deaths'
+    - match: '\[|deaths]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' default'
+    - match: '\[|default]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' defend'
+    - match: '\[|defend]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' defends'
+    - match: '\[|defends]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' defense'
+    - match: '\[|defense]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' delay'
+    - match: '\[|delay]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' deprecated_message'
+    - match: '\[|deprecated_message]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' destination'
+    - match: '\[|destination]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' difficulty'
+    - match: '\[|difficulty]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' disable'
+    - match: '\[|disable]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' disallow_end_turn'
+    - match: '\[|disallow_end_turn]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' disallow_extra_recruit'
+    - match: '\[|disallow_extra_recruit]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' disallow_recruit'
+    - match: '\[|disallow_recruit]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' do'
+    - match: '\[|do]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' do_command'
+    - match: '\[|do_command]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' drains'
+    - match: '\[|drains]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' draw_weapon_anim'
+    - match: '\[|draw_weapon_anim]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: 'editor_group'
+    - match: '\[|editor_group]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' editor_music'
+    - match: '\[|editor_music]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' editor_times'
+    - match: '\[|editor_times]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' effect'
+    - match: '\[|effect]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' else'
+    - match: '\[|else]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' elseif'
+    - match: '\[|elseif]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' endlevel'
+    - match: '\[|endlevel]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' end_turn'
+    - match: '\[|end_turn]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' enemy_of'
+    - match: '\[|enemy_of]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' engine'
+    - match: '\[|engine]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' entry'
+    - match: '\[|entry]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' era'
+    - match: '\[|era]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' event'
+    - match: '\[|event]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' extra_anim'
+    - match: '\[|extra_anim]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: 'facet'
+    - match: '\[|facet]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' facing'
+    - match: '\[|facing]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' fake_unit'
+    - match: '\[|fake_unit]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' false'
+    - match: '\[|false]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' feedback'
+    - match: '\[|feedback]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' female'
+    - match: '\[|female]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' filter'
+    - match: '\[|filter]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' filter_adjacent'
+    - match: '\[|filter_adjacent]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' filter_adjacent_location'
+    - match: '\[|filter_adjacent_location]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' filter_attack'
+    - match: '\[|filter_attack]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' filter_attacker'
+    - match: '\[|filter_attacker]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' filter_base_value'
+    - match: '\[|filter_base_value]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' filter_condition'
+    - match: '\[|filter_condition]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' filter_defender'
+    - match: '\[|filter_defender]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' filter_enemy'
+    - match: '\[|filter_enemy]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' filter_location'
+    - match: '\[|filter_location]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' filter_opponent'
+    - match: '\[|filter_opponent]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' filter_own'
+    - match: '\[|filter_own]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' filter_owner'
+    - match: '\[|filter_owner]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' filter_radius'
+    - match: '\[|filter_radius]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' filter_recall'
+    - match: '\[|filter_recall]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' filter_second'
+    - match: '\[|filter_second]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' filter_second_attack'
+    - match: '\[|filter_second_attack]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' filter_self'
+    - match: '\[|filter_self]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' filter_side'
+    - match: '\[|filter_side]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' filter_vision'
+    - match: '\[|filter_vision]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' filter_weapon'
+    - match: '\[|filter_weapon]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' filter_wml'
+    - match: '\[|filter_wml]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' find_path'
+    - match: '\[|find_path]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' fire_event'
+    - match: '\[|fire_event]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' firststrike'
+    - match: '\[|firststrike]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' floating_text'
+    - match: '\[|floating_text]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' found_item'
+    - match: '\[|found_item]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' for'
+    - match: '\[|for]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' foreach'
+    - match: '\[|foreach]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' frame'
+    - match: '\[|frame]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: 'game_config'
+    - match: '\[|game_config]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' get_global_variable'
+    - match: '\[|get_global_variable]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' goal'
+    - match: '\[|goal]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' gold'
+    - match: '\[|gold_carryover]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' gold_carryover'
+    - match: '\[|gold]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: 'harm_unit'
+    - match: '\[|harm_unit]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' has_ally'
+    - match: '\[|has_ally]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' has_attack'
+    - match: '\[|has_attack]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' has_unit'
+    - match: '\[|has_unit]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' have_location'
+    - match: '\[|have_location]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' have_unit'
+    - match: '\[|have_unit]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' heal_on_hit'
+    - match: '\[|heal_on_hit]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' heal_unit'
+    - match: '\[|heal_unit]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' healed_anim'
+    - match: '\[|healed_anim]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' healing_anim'
+    - match: '\[|healing_anim]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' heals'
+    - match: '\[|heals]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' hide_help'
+    - match: '\[|hide_help]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' hide_unit'
+    - match: '\[|hide_unit]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' hides'
+    - match: '\[|hides]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: 'idle_anim'
+    - match: '\[|idle_anim]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' if'
+    - match: '\[|if]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' illuminates'
+    - match: '\[|illuminates]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' image'
+    - match: '\[|image]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' init_side'
+    - match: '\[|init_side]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' insert_tag'
+    - match: '\[|insert_tag]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' inspect'
+    - match: '\[|inspect]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' item'
+    - match: '\[|item]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' item_group'
+    - match: '\[|item_group]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: 'jamming_costs'
+    - match: '\[|jamming_costs]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' join'
+    - match: '\[|join]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: 'kill'
+    - match: '\[|kill]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' killed'
+    - match: '\[|killed]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: 'label'
+    - match: '\[|label]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' language'
+    - match: '\[|language]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' leader'
+    - match: '\[|leader]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' leader_goal'
+    - match: '\[|leader_goal]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' leadership'
+    - match: '\[|leadership]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' leading_anim'
+    - match: '\[|leading_anim]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' levelin_anim'
+    - match: '\[|levelin_anim]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' levelout_anim'
+    - match: '\[|levelout_anim]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' lift_fog'
+    - match: '\[|lift_fog]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' limit'
+    - match: '\[|limit]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' literal'
+    - match: '\[|literal]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' load_resource'
+    - match: '\[|load_resource]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' locale'
+    - match: '\[|locale]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' lock_view'
+    - match: '\[|lock_view]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' lua'
+    - match: '\[|lua]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: 'male'
+    - match: '\[|male]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' menu_item'
+    - match: '\[|menu_item]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' message'
+    - match: '\[|message]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' micro_ai'
+    - match: '\[|micro_ai]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' missile_frame'
+    - match: '\[|missile_frame]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' modification'
+    - match: '\[|modification]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' modifications'
+    - match: '\[|modifications]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' modify_ai'
+    - match: '\[|modify_ai]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' modify_side'
+    - match: '\[|modify_side]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' modify_turns'
+    - match: '\[|modify_turns]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' modify_unit'
+    - match: '\[|modify_unit]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' modify_unit_type'
+    - match: '\[|modify_unit_type]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' move'
+    - match: '\[|move]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' move_unit'
+    - match: '\[|move_unit]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' move_unit_fake'
+    - match: '\[|move_unit_fake]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' move_units_fake'
+    - match: '\[|move_units_fake]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' movement_anim'
+    - match: '\[|movement_anim]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' movement costs'
+    - match: '\[|movement costs]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' movetype'
+    - match: '\[|movetype]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' multiplayer'
+    - match: '\[|multiplayer]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' multiplayer_side'
+    - match: '\[|multiplayer_side]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' music'
+    - match: '\[|music]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: 'not'
+    - match: '\[|not]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' note'
+    - match: '\[|note]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: 'object'
+    - match: '\[|objectives]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' objective'
+    - match: '\[|objective]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' objectives'
+    - match: '\[|object]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' on_undo'
+    - match: '\[|on_undo]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' open_help'
+    - match: '\[|open_help]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' option'
+    - match: '\[|option]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' options'
+    - match: '\[|options]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' or'
+    - match: '\[|or]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: 'part'
+    - match: '\[|part]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' petrifies'
+    - match: '\[|petrifies]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' petrify'
+    - match: '\[|petrify]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' place_shroud'
+    - match: '\[|place_shroud]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' plague'
+    - match: '\[|plague]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' poison'
+    - match: '\[|poison]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' portrait'
+    - match: '\[|portrait]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' post_movement_anim'
+    - match: '\[|post_movement_anim]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' pre_movement_anim'
+    - match: '\[|pre_movement_anim]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' primary_attack'
+    - match: '\[|primary_attack]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' primary_unit'
+    - match: '\[|primary_unit]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' print'
+    - match: '\[|print]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' put_to_recall_list'
+    - match: '\[|put_to_recall_list]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: 'race'
+    - match: '\[|race]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' random_placement'
+    - match: '\[|random_placement]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' recall'
+    - match: '\[|recall]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' recalls'
+    - match: '\[|recalls]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' recruit'
+    - match: '\[|recruit]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' recruit_anim'
+    - match: '\[|recruit_anim]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' recruiting_anim'
+    - match: '\[|recruiting_anim]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' recruits'
+    - match: '\[|recruits]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' redraw'
+    - match: '\[|redraw]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' regenerate'
+    - match: '\[|regenerate]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' remove_event'
+    - match: '\[|remove_event]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' remove_item'
+    - match: '\[|remove_item]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' remove_object'
+    - match: '\[|remove_object]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' remove_shroud'
+    - match: '\[|remove_shroud]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' remove_sound_source'
+    - match: '\[|remove_sound_source]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' remove_time_area'
+    - match: '\[|remove_time_area]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' remove_trait'
+    - match: '\[|remove_trait]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' remove_unit_overlay'
+    - match: '\[|remove_unit_overlay]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' repeat'
+    - match: '\[|repeat]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' replace_map'
+    - match: '\[|replace_map]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' replace_schedule'
+    - match: '\[|replace_schedule]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' replay'
+    - match: '\[|replay]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' replay_start'
+    - match: '\[|replay_start]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' reset_fog'
+    - match: '\[|reset_fog]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' resistance'
+    - match: '\[|resistance]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' resistance_defaults'
+    - match: '\[|resistance_defaults]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' resource'
+    - match: '\[|resource]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' return'
+    - match: '\[|return]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' role'
+    - match: '\[|role]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' rule'
+    - match: '\[|rule]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: 'save'
+    - match: '\[|save]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' scenario'
+    - match: '\[|scenario]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' scroll'
+    - match: '\[|scroll]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' scroll_to'
+    - match: '\[|scroll_to]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' scroll_to_unit'
+    - match: '\[|scroll_to_unit]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' secondary_attack'
+    - match: '\[|secondary_attack]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' secondary_unit'
+    - match: '\[|secondary_unit]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' section'
+    - match: '\[|section]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' select_unit'
+    - match: '\[|select_unit]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' sequence'
+    - match: '\[|sequence]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' set_extra_recruit'
+    - match: '\[|set_extra_recruit]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' set_global_variable'
+    - match: '\[|set_global_variable]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' set_menu_item'
+    - match: '\[|set_menu_item]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' set_recruit'
+    - match: '\[|set_recruit]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' set_specials'
+    - match: '\[|set_specials]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' set_variable'
+    - match: '\[|set_variable]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' set_variables'
+    - match: '\[|set_variables]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' sheath_weapon_anim'
+    - match: '\[|sheath_weapon_anim]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' show_if'
+    - match: '\[|show_if]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' show_objectives'
+    - match: '\[|show_objectives]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' side'
+    - match: '\[|side]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' skirmisher'
+    - match: '\[|skirmisher]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' slider'
+    - match: '\[|slider]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' slow'
+    - match: '\[|slow]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' snapshot'
+    - match: '\[|snapshot]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' sound'
+    - match: '\[|sound]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' sound_source'
+    - match: '\[|sound_source]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' source'
+    - match: '\[|source]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' special_note'
+    - match: '\[|special_note]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' specials'
+    - match: '\[|specials]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' split'
+    - match: '\[|split]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' stage'
+    - match: '\[|stage]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' standing_anim'
+    - match: '\[|standing_anim]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' statistics'
+    - match: '\[|statistics]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' status'
+    - match: '\[|status]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' store_gold'
+    - match: '\[|store_gold]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' store_items'
+    - match: '\[|store_items]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' store_locations'
+    - match: '\[|store_locations]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' store_map_dimensions'
+    - match: '\[|store_map_dimensions]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' store_reachable_locations'
+    - match: '\[|store_reachable_locations]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' store_relative_direction'
+    - match: '\[|store_relative_direction]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' store_side'
+    - match: '\[|store_side]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' store_starting_location'
+    - match: '\[|store_starting_location]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' store_time_of_day'
+    - match: '\[|store_time_of_day]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' store_turns'
+    - match: '\[|store_turns]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' store_unit'
+    - match: '\[|store_unit]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' store_unit_defense'
+    - match: '\[|store_unit_defense]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' store_unit_defense_on'
+    - match: '\[|store_unit_defense_on]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' store_unit_type'
+    - match: '\[|store_unit_type]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' store_unit_type_ids'
+    - match: '\[|store_unit_type_ids]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' store_villages'
+    - match: '\[|store_villages]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' story'
+    - match: '\[|story]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' swarm'
+    - match: '\[|swarm]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' switch'
+    - match: '\[|switch]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' sync_variable'
+    - match: '\[|sync_variable]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: 'target'
+    - match: '\[|target]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' team'
+    - match: '\[|team]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' teleport'
+    - match: '\[|teleport]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' teleport_anim'
+    - match: '\[|teleport_anim]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' terrain'
+    - match: '\[|terrain]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' terrain_defaults'
+    - match: '\[|terrain_defaults]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' terrain_graphics'
+    - match: '\[|terrain_graphics]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' terrain_mask'
+    - match: '\[|terrain_mask]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' terrain_type'
+    - match: '\[|terrain_type]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' test'
+    - match: '\[|test]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' test_condition'
+    - match: '\[|test_condition]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' text_input'
+    - match: '\[|text_input]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' textdomain'
+    - match: '\[|textdomain]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' theme'
+    - match: '\[|theme]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' then'
+    - match: '\[|then]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' tile'
+    - match: '\[|tile]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' time'
+    - match: '\[|time]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' time_area'
+    - match: '\[|time_area]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' topic'
+    - match: '\[|topic]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' toplevel'
+    - match: '\[|toplevel]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' trait'
+    - match: '\[|trait]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' transform_unit'
+    - match: '\[|transform_unit]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' traveler'
+    - match: '\[|traveler]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' true'
+    - match: '\[|true]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' tunnel'
+    - match: '\[|tunnel]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' tutorial'
+    - match: '\[|tutorial]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: 'unhide_unit'
+    - match: '\[|unhide_unit]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' unit'
+    - match: '\[|unit]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' unit_overlay'
+    - match: '\[|unit_overlay]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' unit_type'
+    - match: '\[|unit_type]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' unit_worth'
+    - match: '\[|unit_worth]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' units'
+    - match: '\[|units]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' unlock_view'
+    - match: '\[|unlock_view]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' unpetrify'
+    - match: '\[|unpetrify]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' unstore_unit'
+    - match: '\[|unstore_unit]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' unsynced'
+    - match: '\[|unsynced]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: 'value'
+    - match: '\[|value]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' variable'
+    - match: '\[|variable]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' variables'
+    - match: '\[|variables]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' variant'
+    - match: '\[|variant]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' variation'
+    - match: '\[|variation]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' victory_anim'
+    - match: '\[|victory_anim]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' village'
+    - match: '\[|village]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' vision_costs'
+    - match: '\[|vision_costs]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' volume'
+    - match: '\[|volume]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: 'while'
+    - match: '\[|while]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' wml_message'
+    - match: '\[|wml_message]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: ' wml_schema'
+    - match: '\[|wml_schema]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
-    - match: 'zoom'
+    - match: '\[|zoom]'
       push:
-        - meta_scope: markup.attributes
+        - meta_scope: markup.tag
         - match: ''
           pop: true
