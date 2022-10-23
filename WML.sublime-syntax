@@ -1,0 +1,3227 @@
+%YAML 1.2
+---
+# http://www.sublimetext.com/docs/3/syntax.html
+name: Wesnoth Markup Language
+file_extensions: [cfg]
+scope: source.cfg
+contexts:
+  main:
+    # parentheses
+    - match: '\('
+      push:
+        - meta_scope: markup.parentheses
+        - match: '\)'
+          pop: true
+    # numbers
+    - match: '[0-9.]|yes|true|no|false'
+      push:
+        - meta_scope: markup.numbers
+        - match: ''
+          pop: true
+    # Macros
+    - match: '{[A-Z_]|}'
+      push:
+        - meta_scope: markup.macro
+        - match: '$\n?|[ ]'
+          pop: true
+    # Strings
+    - match: '"'
+      push:
+        - meta_scope: markup.string.untranslatable
+        - match: '$\n?|?"'
+          pop: true
+    - match: '[ ]_[ ]"'
+      push:
+        - meta_scope: markup.string.translatable
+        - match: '$\n?|?"'
+          pop: true
+    # Attributes (at least four spaces followed by lowercase letters)
+    - match: '[ ][ ][ ][ ][a-z]'
+      push:
+        - meta_scope: markup.attribute.data
+        - match: '$\n?|='
+          pop: true
+    # Tags
+    - match: '\['
+      push:
+        - meta_scope: markup.tag
+        - match: '$\n?|]'
+          pop: true
+    # Preprocessor
+    - match: '^#'
+      push:
+        - meta_scope: markup.preprocessor
+        - match: '$\n?'
+          pop: true
+    # Comments
+    - match: '#'
+      push:
+        - meta_scope: markup.comment
+        - match: '$\n?'
+          pop: true
+    # ultra-specific
+    - match: 'lose'
+      push:
+        - meta_scope: markup.red
+        - match: ''
+          pop: true
+    - match: 'win'
+      push:
+        - meta_scope: markup.green
+        - match: ''
+          pop: true
+    - match: 'Ancient Lich'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Ancient Wose'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Arch Mage'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Armaggedon Drake'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Assassin'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Bandit'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Banebow'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Bay Horse'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Black Horse'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Blood Bat'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Boat'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Bone Shooter'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Bowman'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Cavalier'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Cavalryman'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Cave Bear'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Chocobone'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Commander'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Cuttle Fish'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dark Adept'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dark Horse'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dark Queen'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dark Sorcerer'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Death Knight'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Deathblade'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Direwolf'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Direwolf Rider'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dragoon'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Drake Arbiter'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Drake Blademaster'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Drake Burner'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Drake Clasher'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Drake Enforcer'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Drake Fighter'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Drake Flameheart'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Drake Flare'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Drake Glider'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Drake Thrasher'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Drake Warden'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Drake Warrior'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Draug'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dread Bat'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Duelist'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dune Alchemist'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dune Apothecary'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dune Blademaster'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dune Burner'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dune Captain'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dune Cataphract'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dune Explorer'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dune Falconer'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dune Firetrooper'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dune Harrier'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dune Herbalist'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dune Horse Archer'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dune Luminary'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dune Marauder'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dune Paragon'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dune Raider'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dune Rider'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dune Rover'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dune Scorcher'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dune Skirmisher'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dune Sky Hunter'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dune Soldier'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dune Spearguard'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dune Spearmaster'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dune Strider'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dune Sunderer'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dune Swordsman'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dune Warmaster'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dune Wayfarer'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dune Windbolt'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dwarvish Arcanister'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dwarvish Berserker'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dwarvish Dragonguard'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dwarvish Explorer'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dwarvish Fighter'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dwarvish Guardsman'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dwarvish Lord'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dwarvish Pathfinder'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dwarvish Runemaster'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dwarvish Runesmith'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dwarvish Scout'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dwarvish Sentinel'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dwarvish Stalwart'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dwarvish Steelclad'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dwarvish Thunderer'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dwarvish Thunderguard'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Dwarvish Ulfserker'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Elder Falcon'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Elder Mage'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Elder Wose'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Elvish Archer'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Elvish Avenger'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Elvish Captain'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Elvish Champion'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Elvish Druid'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Elvish Enchantress'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Elvish Fighter'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Elvish Hero'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Elvish High Lord'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Elvish Lady'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Elvish Lord'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Elvish Marksman'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Elvish Marshal'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Elvish Outrider'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Elvish Ranger'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Elvish Rider'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Elvish Scout'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Elvish Shaman'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Elvish Sharpshooter'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Elvish Shyde'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Elvish Sorceress'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Elvish Sylph'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Falcon'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Fencer'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Fighter'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Fire Ant'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Fire Dragon'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Fire Drake'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Fire Guardian'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Fire Wraith'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Fog Clearer'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Footpad'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Frost Stoat'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Fugitive'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Galleon'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'General'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Ghast'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Ghost'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Ghoul'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Giant Ant'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Giant Mudcrawler'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Giant Rat'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Giant Scorpion'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Giant Scorpling'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Giant Spider'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Giant Stoat'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Goblin Impaler'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Goblin Knight'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Goblin Pillager'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Goblin Rouser'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Goblin Spearman'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Grand Knight'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Grand Marshal'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Great Horse'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Great Icemonax'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Great Mage'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Great Seahorse'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Great Troll'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Great Wolf'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Gryphon'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Gryphon Master'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Gryphon Rider'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Halberdier'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Heavy Infantryman'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Highwayman'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Horned Scarab'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Horseman'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Huntsman'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Hurricane Drake'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Icemonax'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Inferno Drake'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Injured Sergeant'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Iron Mauler'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Javelineer'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Jinn'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Knight'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Lancer'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Lich'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Lieutenant'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Longbowman'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Lord'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Mage'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Mage of Light'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Master Bowman'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Master at Arms'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Mermaid Diviner'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Mermaid Enchantress'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Mermaid Initiate'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Mermaid Priestess'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Mermaid Siren'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Merman Entangler'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Merman Fighter'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Merman Hoplite'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Merman Hunter'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Merman Javelineer'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Merman Netcaster'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Merman Spearman'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Merman Triton'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Merman Warrior'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Mudcrawler'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Naga Dirkfang'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Naga Fighter'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Naga Guard'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Naga High Guard'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Naga Myrmidon'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Naga Ophidian'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Naga Ringcaster'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Naga Shield Guard'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Naga Sicarius'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Naga Warrior'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Naga Zephyr'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Necromancer'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Necrophage'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Nightgaunt'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Ogre'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Orcish Archer'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Orcish Assassin'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Orcish Crossbowman'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Orcish Grunt'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Orcish Leader'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Orcish Nightblade'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Orcish Ruler'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Orcish Slayer'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Orcish Slurbow'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Orcish Sovereign'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Orcish Warlord'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Orcish Warrior'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Outlaw'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Paladin'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Peasant'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Piglet'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Pikeman'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Pirate Galleon'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Poacher'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Princess'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Ranger'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Red Mage'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Revenant'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Roc'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Rock Scorpion'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Rogue'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Royal Guard'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Royal Warrior'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Ruffian'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Saurian Ambusher'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Saurian Augur'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Saurian Flanker'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Saurian Oracle'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Saurian Skirmisher'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Saurian Soothsayer'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Sea Orc'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Sea Serpent'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Shadow'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Shock Trooper'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Silver Mage'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Skeletal Dragon'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Skeleton'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Sky Drake'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Skeleton Archer'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Sleeping Gryphon'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Soulless'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Spearman'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Spectre'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Swamp Lizard'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Swordsman'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Tentacle of the Deep'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Thief'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Thug'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Transport Galleon'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Trapper'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Troll'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Troll Hero'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Troll Rocklobber'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Troll Shaman'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Troll Warrior'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Troll Whelp'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Vampire Bat'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Walking Corpse'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Water Serpent'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'White Horse'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'White Mage'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Wild Wyvern'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Wolf'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Wolf Rider'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Woodland Boar'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Woodsman'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Wose'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Wose Sapling'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Wose Shaman'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Wraith'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Wyvern Rider'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Yeti'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'Young Ogre'
+      push:
+        - meta_scope: markup.unittypes
+        - match: ''
+          pop: true
+    - match: 'abilities'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' about'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' add_ai_behavior'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' advance'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' advanced_preference'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' advancefrom'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' advancement'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' advances'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' affect_adjacent'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' ai'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' allied_with'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' allow_end_turn'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' allow_extra_recruit'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' allow_recruit'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' allow_undo'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' and'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' animate'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' animate_unit'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' animation'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' aspect'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' attack'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' attack_anim'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' attacks'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' avoid'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: 'base_unit'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' berserk'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' binary_path'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' break'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' brush'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: 'campaign'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' cancel_action'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' candidate_action'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' capture_village'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' case'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' chance_to_hit'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' change_theme'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' chat'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' checkbox'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' choice'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' choose'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' clear_global_variable'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' clear_menu_item'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' clear_variable'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' color_adjust'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' color_palette'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' color_range'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' command'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' continue'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' credits_group'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' criteria'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: 'damage'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' death'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' deaths'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' default'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' defend'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' defends'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' defense'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' delay'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' deprecated_message'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' destination'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' difficulty'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' disable'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' disallow_end_turn'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' disallow_extra_recruit'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' disallow_recruit'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' do'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' do_command'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' drains'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' draw_weapon_anim'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: 'editor_group'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' editor_music'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' editor_times'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' effect'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' else'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' elseif'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' endlevel'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' end_turn'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' enemy_of'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' engine'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' entry'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' era'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' event'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' extra_anim'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: 'facet'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' facing'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' fake_unit'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' false'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' feedback'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' female'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' filter'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' filter_adjacent'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' filter_adjacent_location'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' filter_attack'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' filter_attacker'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' filter_base_value'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' filter_condition'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' filter_defender'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' filter_enemy'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' filter_location'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' filter_opponent'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' filter_own'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' filter_owner'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' filter_radius'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' filter_recall'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' filter_second'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' filter_second_attack'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' filter_self'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' filter_side'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' filter_vision'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' filter_weapon'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' filter_wml'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' find_path'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' fire_event'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' firststrike'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' floating_text'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' found_item'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' for'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' foreach'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' frame'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: 'game_config'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' get_global_variable'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' goal'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' gold'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' gold_carryover'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: 'harm_unit'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' has_ally'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' has_attack'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' has_unit'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' have_location'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' have_unit'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' heal_on_hit'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' heal_unit'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' healed_anim'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' healing_anim'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' heals'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' hide_help'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' hide_unit'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' hides'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: 'idle_anim'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' if'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' illuminates'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' image'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' init_side'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' insert_tag'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' inspect'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' item'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' item_group'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: 'jamming_costs'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' join'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: 'kill'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' killed'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: 'label'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' language'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' leader'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' leader_goal'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' leadership'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' leading_anim'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' levelin_anim'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' levelout_anim'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' lift_fog'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' limit'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' literal'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' load_resource'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' locale'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' lock_view'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' lua'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: 'male'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' menu_item'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' message'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' micro_ai'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' missile_frame'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' modification'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' modifications'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' modify_ai'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' modify_side'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' modify_turns'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' modify_unit'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' modify_unit_type'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' move'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' move_unit'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' move_unit_fake'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' move_units_fake'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' movement_anim'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' movement costs'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' movetype'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' multiplayer'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' multiplayer_side'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' music'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: 'not'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' note'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: 'object'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' objective'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' objectives'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' on_undo'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' open_help'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' option'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' options'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' or'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: 'part'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' petrifies'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' petrify'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' place_shroud'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' plague'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' poison'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' portrait'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' post_movement_anim'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' pre_movement_anim'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' primary_attack'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' primary_unit'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' print'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' put_to_recall_list'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: 'race'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' random_placement'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' recall'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' recalls'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' recruit'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' recruit_anim'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' recruiting_anim'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' recruits'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' redraw'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' regenerate'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' remove_event'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' remove_item'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' remove_object'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' remove_shroud'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' remove_sound_source'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' remove_time_area'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' remove_trait'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' remove_unit_overlay'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' repeat'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' replace_map'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' replace_schedule'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' replay'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' replay_start'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' reset_fog'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' resistance'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' resistance_defaults'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' resource'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' return'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' role'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' rule'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: 'save'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' scenario'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' scroll'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' scroll_to'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' scroll_to_unit'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' secondary_attack'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' secondary_unit'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' section'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' select_unit'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' sequence'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' set_extra_recruit'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' set_global_variable'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' set_menu_item'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' set_recruit'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' set_specials'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' set_variable'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' set_variables'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' sheath_weapon_anim'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' show_if'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' show_objectives'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' side'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' skirmisher'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' slider'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' slow'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' snapshot'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' sound'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' sound_source'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' source'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' special_note'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' specials'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' split'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' stage'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' standing_anim'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' statistics'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' status'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' store_gold'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' store_items'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' store_locations'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' store_map_dimensions'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' store_reachable_locations'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' store_relative_direction'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' store_side'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' store_starting_location'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' store_time_of_day'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' store_turns'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' store_unit'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' store_unit_defense'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' store_unit_defense_on'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' store_unit_type'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' store_unit_type_ids'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' store_villages'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' story'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' swarm'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' switch'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' sync_variable'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: 'target'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' team'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' teleport'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' teleport_anim'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' terrain'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' terrain_defaults'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' terrain_graphics'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' terrain_mask'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' terrain_type'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' test'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' test_condition'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' text_input'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' textdomain'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' theme'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' then'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' tile'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' time'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' time_area'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' topic'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' toplevel'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' trait'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' transform_unit'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' traveler'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' true'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' tunnel'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' tutorial'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: 'unhide_unit'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' unit'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' unit_overlay'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' unit_type'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' unit_worth'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' units'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' unlock_view'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' unpetrify'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' unstore_unit'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' unsynced'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: 'value'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' variable'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' variables'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' variant'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' variation'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' victory_anim'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' village'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' vision_costs'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' volume'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: 'while'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' wml_message'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: ' wml_schema'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
+    - match: 'zoom'
+      push:
+        - meta_scope: markup.attributes
+        - match: ''
+          pop: true
