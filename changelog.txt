@@ -1,0 +1,7 @@
+# 1.0
+	- Fix trolls and wolves priority
+	- Don't highlight wrong tags
+	- Highlight slashes in red
+	- Add Monokai custom color scheme
+	- Avoid overextending tags outside braces
+	- Fix Translatable strings (now detects "_ " and " _ ")
