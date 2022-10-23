@@ -14,14 +14,14 @@ Sublime text 3 package that is capable of basic highlighting in wesnoth markup l
   - Different colors for translatable and non-translatable strings
   - A special color for mainline unit types (if the unit type is not highlighted, you may have written it wrong)
   - A different color for tags (only admitted tags are colored)
+
+  ### Example:
+  ![WMLSyntax](https://user-images.githubusercontent.com/30196839/197388755-c7b0ff45-442a-445c-92e1-f4c4b6dfb42b.png)
+  An extract from wesnoth's HttT's first scenario's code
   
 ## Wontfix:
   - Wrong attributes should not be highlighted (Reason: implementation would be too hard)
   - Numbers are highlighted where they should not (Reason: Can be avoided using quotation marks (""))
 
-  ### Example:
-  ![WMLSyntax](https://user-images.githubusercontent.com/30196839/197388755-c7b0ff45-442a-445c-92e1-f4c4b6dfb42b.png)
-  An extract from wesnoth's HttT's first scenario's code
-
-## To change the color scheme go to:
-  https://www.sublimetext.com/docs/color_schemes.html
+## For questions about colors:
+  [Stack overflow, change colors Sublime Text 3](https://stackoverflow.com/questions/27368674/how-to-change-background-and-text-colors-in-sublime-text-3)
