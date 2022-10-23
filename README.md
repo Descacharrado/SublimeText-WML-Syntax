@@ -14,6 +14,7 @@ Sublime text 3 package that is capable of basic highlighting in wesnoth markup l
   - A color for tags
   
   ### Example:
+  An extract from wesnoth's HttT's first scenario's code.
   ![WMLSyntax](https://user-images.githubusercontent.com/30196839/197388755-c7b0ff45-442a-445c-92e1-f4c4b6dfb42b.png)
 
 ## To change the color scheme go to:
