@@ -1,0 +1,84 @@
+{
+    "variables":
+    {
+        "yellow": "#d5e356",
+    },
+    "globals":
+    {
+        "background": "hsl(70, 0%, 15%)",
+        "misspelling": "#262626",
+        //"bracket_contents_foreground": "#ff0000",
+        "bracket_foreground": "#ff000"
+    },
+    "rules":
+    [
+        {
+            "scope": "variable.function",
+            "foreground": "#21b7d1"
+        },
+        {
+            "scope": "markup.parentheses",
+            "foreground": "#407e80"
+        },
+        {
+            "scope": "markup.numbers",
+            "foreground": "#746ab0"
+        },
+        {
+            "scope": "markup.attribute.data",
+            "foreground": "#fcd57e"
+        },
+        {
+            "scope": "markup.string.untranslatable",
+            "foreground": "#807940"
+        },
+        {
+            "scope": "markup.string.translatable",
+            "foreground": "#d5e356"
+        },
+        {
+            "scope": "markup.tag",
+            "foreground": "#d19c1f"
+        },
+        {
+            "scope": "markup.macro",
+            "foreground": "#1fa8d1"
+        },
+        {
+            "scope": "markup.unittypes",
+            "foreground": "#404380"
+        },
+        {
+            "scope": "markup.attributes",
+            "foreground": "#21b7d1"
+        },
+        {
+            "scope": "markup.red",
+            "foreground": "#ff0000"
+        },
+        {
+            "scope": "markup.green",
+            "foreground": "#00ff00"
+        },
+        {
+            "scope": "markup.comment",
+            "foreground": "hsl(70, 0%, 30%)"
+        },
+        {
+            "scope": "markup.preprocessor",
+            "foreground": "#d11f2b"
+        },
+        {
+            "scope": "keyword",
+            "foreground": "#d41717"
+        },
+        {
+            "scope": "entity.name",
+            "foreground": "#d18521"
+        },
+        {
+            "scope": "invalid",
+            "background": "#303030"
+        }
+    ]
+}
