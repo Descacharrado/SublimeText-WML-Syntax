@@ -9,9 +9,9 @@ Sublime text 3 package that is capable of basic highlighting in wesnoth markup l
   
 ## Basic implementation contains:
   - Coloring of WML Macros
-  - Different colors for translatable and non-translatable string
+  - Different colors for translatable and non-translatable strings
   - A special color for mainline unit types (if the unit type is not highlighted, you may have written it wrong)
-  - A color for tags
+  - A different color for tags, attributes and numbers
   
   ### Example:
   An extract from wesnoth's HttT's first scenario's code.
